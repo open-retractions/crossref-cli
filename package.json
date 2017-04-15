@@ -1,6 +1,6 @@
 {
   "name": "crossref-cli",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "command-line interface for querying the crossref works API",
   "bin": "cli.js",
   "repository": {
