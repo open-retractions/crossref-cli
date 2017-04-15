@@ -7,7 +7,7 @@ var ProgressBar = require('progress')
 var API_URL = 'http://api.crossref.org/v1/works'
 
 module.exports = function (args, opts) {
-  if (args.filter && typeof args.filter === 'array') {
+  if (args.filter && args.filter instanceof Array) {
     args.filter = args.filter.join(',')
   }
 
@@ -20,7 +20,7 @@ module.exports = function (args, opts) {
     doProgress()
   }
 
-  pumpify(resultstream(), logstream())
+  return pumpify(resultstream(), logstream())
 
   function resultstream () {
     console.error('Querying CrossRef with:', query)
