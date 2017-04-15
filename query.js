@@ -13,7 +13,10 @@ module.exports = function (args, opts) {
 
   var n = 0
   var progress
-  var query = xtend({ cursor: '*', rows: 1000 }, args)
+  var query = xtend({
+    cursor: '*',
+    rows: (args.limit && args.limit < 1000) ? args.limit : 1000
+  }, args)
 
   if (query.limit) {
     delete query.limit
