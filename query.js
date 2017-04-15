@@ -40,7 +40,7 @@ module.exports = function (args, opts) {
 
   function getdata (res, body) {
     handleErrors(res, body)
-    doProgress(body)
+    if (opts.progress) doProgress(body)
     var items = body.message.items
     n += items.length
     return items
