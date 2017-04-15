@@ -3,8 +3,6 @@
   <h2>A command-line tool for querying the CrossRef works API</h2>
 </div>
 
-:heart:
-
 ---
 
 <div align="center">
