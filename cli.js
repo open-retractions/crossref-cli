@@ -7,5 +7,5 @@ delete argv._
 if (argv.h || argv.help) {
   require('./help')()
 } else {
-  require('./query')(argv)
+  require('./query')(argv, { progress: true })
 }
