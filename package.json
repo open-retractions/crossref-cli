@@ -1,13 +1,21 @@
 {
   "name": "crossref-cli",
-  "version": "0.0.2",
+  "version": "0.0.7",
   "description": "command-line interface for querying the crossref works API",
   "bin": "cli.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fathomlabs/crossref-cli.git"
   },
-  "keywords": ["crossref", "api", "command-line", "scholarly", "publishing", "metadata", "citations"],
+  "keywords": [
+    "crossref",
+    "api",
+    "command-line",
+    "scholarly",
+    "publishing",
+    "metadata",
+    "citations"
+  ],
   "author": "",
   "license": "MIT",
   "bugs": {
