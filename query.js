@@ -23,7 +23,7 @@ module.exports = function (args, opts) {
     doProgress()
   }
 
-  return pumpify(resultstream(), logstream())
+  return pumpify.obj(resultstream(), logstream())
 
   function resultstream () {
     console.error('Querying CrossRef with:', query)
