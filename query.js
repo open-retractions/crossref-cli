@@ -1,5 +1,5 @@
 var querystream = require('rest-collection-stream')
-var to = require('flush-write-stream')
+var through = require('through2')
 var pumpify = require('pumpify')
 var xtend = require('xtend')
 var ProgressBar = require('progress')
@@ -35,7 +35,7 @@ module.exports = function (args, opts) {
   }
 
   function logstream () {
-    return to.obj(logone, done)
+    return through.obj(logone, done)
   }
 
   function getdata (res, body) {
@@ -55,7 +55,7 @@ module.exports = function (args, opts) {
   function doProgress (body) {
     if (progress) {
       progress.tick(body.message.items.length)
-    } else {
+    } else if (opts.progress) {
       progress = new ProgressBar('Results downloaded: :percent :bar (:current/:total)', {
         width: 100,
         total: args.limit || body.message['total-results']
@@ -73,9 +73,9 @@ module.exports = function (args, opts) {
     }
   }
 
-  function logone (data, enc, cb) {
+  function logone (data, enc, done) {
     if (opts.log) console.log(JSON.stringify(data))
-    cb(null, data)
+    done(null, data)
   }
 
   function done(cb) {
