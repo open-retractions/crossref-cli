@@ -74,8 +74,8 @@ module.exports = function (args, opts) {
   }
 
   function logone (data, enc, cb) {
-    console.log(JSON.stringify(data))
-    cb()
+    if (opts.log) console.log(JSON.stringify(data))
+    cb(null, data)
   }
 
   function done(cb) {
