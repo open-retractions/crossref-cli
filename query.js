@@ -42,6 +42,10 @@ module.exports = function (args, opts) {
     handleErrors(res, body)
     if (opts.progress) doProgress(body)
     var items = body.message.items
+    if ( items.length === 0 ) {
+      console.log('Completed query.\n')
+      process.exit()
+    }
     n += items.length
     return items
   }
