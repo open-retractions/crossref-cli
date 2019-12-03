@@ -3,6 +3,9 @@
   "version": "0.0.8",
   "description": "command-line interface for querying the crossref works API",
   "bin": "cli.js",
+  "scripts": {
+    "release": "release-it"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fathomlabs/crossref-cli.git"
@@ -29,5 +32,8 @@
     "rest-collection-stream": "0.0.1",
     "through2": "^2.0.3",
     "xtend": "^4.0.1"
+  },
+  "devDependencies": {
+    "release-it": "^12.4.3"
   }
 }
