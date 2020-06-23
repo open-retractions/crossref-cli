@@ -4,7 +4,7 @@ var pumpify = require('pumpify')
 var xtend = require('xtend')
 var ProgressBar = require('progress')
 
-var API_URL = 'http://api.crossref.org/v1/works'
+var API_URL = 'https://api.crossref.org/works'
 
 module.exports = function (args, opts) {
   if (args.filter && args.filter instanceof Array) {
@@ -15,8 +15,9 @@ module.exports = function (args, opts) {
   var progress
   var query = xtend({
     cursor: '*',
-    rows: (args.limit && args.limit < 1000) ? args.limit : 1000
-  }, args)
+    rows: (args.limit && args.limit < 1000) ? args.limit : 1000,
+    filter: args.filter
+  })
 
   if (query.limit) {
     delete query.limit
